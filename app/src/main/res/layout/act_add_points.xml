@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray8_trans_50">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="24dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:background="@color/gray4_trans_50"
+                android:text="@string/str_date"
+                android:textAlignment="center"
+                android:textColor="@color/blue_light"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spin_departure"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_marginTop="26dp"
+                android:entries="@array/station_departure"
+                android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/spin_arrival"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_marginTop="26dp"
+                android:entries="@array/station_arrival"
+                android:textAlignment="center" />
+
+
+            <Spinner
+                android:id="@+id/spin_trans"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_marginTop="26dp"
+                android:layout_weight="3"
+                android:entries="@array/transport"
+                android:textAlignment="center" />
+
+
+            <TextView
+                android:id="@+id/btn_add_day"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="32dp"
+                android:background="@color/blue"
+                android:gravity="center"
+                android:text="@string/str_search_schedule"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

@@ -1,3 +1,40 @@
 <resources>
     <string name="app_name">SearchNearestAttractionApp</string>
+    <string name="schedule_for">Расписание транспорта на:</string>
+    <string name="str_today">Сегодня</string>
+    <string name="str_date">Дата</string>
+    <string name="str_departure">Пункт отправления</string>
+    <string name="str_arrival">Пункт назначения</string>
+    <string name="enter_date">введите дату</string>
+    <string name="str_transport">Транспорт</string>
+    <string name="str_search">поиск</string>
+    <string name="str_add">Добавить</string>
+    <string name="str_cancel">Отмена</string>
+    <string name="str_select">Выбрать</string>
+    <string name="str_search_schedule">Найти расписание</string>
+    <string name="except">кроме: Дербеневская (бывш. Москва-Товарная), Тульская (бывш. ЗИЛ), Чертаново, Булатниково, Калинина, Ленинская, 32 км</string>
+    <string name="hour_title">ч</string>
+
+    <string-array name="transport">
+        <item>Вид транспорта</item>
+        <item>Автобус</item>
+        <item>Электричка</item>
+        <item>Поезд</item>
+        <item>Самолет</item>
+    </string-array>
+    <string-array name="station_departure">
+        <item>Пункт отправления</item>
+        <item>Павелецкий вокзал</item>
+        <item>Верхние котлы</item>
+        <item>Нагатинская</item>
+        <item>Барыбино</item>
+    </string-array>
+    <string-array name="station_arrival">
+        <item>Пункт назначения</item>
+        <item>Павелецкий вокзал</item>
+        <item>Верхние котлы</item>
+        <item>Нагатинская</item>
+        <item>Барыбино</item>
+    </string-array>
+
 </resources>
