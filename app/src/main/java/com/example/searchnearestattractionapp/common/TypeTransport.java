@@ -1,12 +1,15 @@
 package com.example.searchnearestattractionapp.common;
 
+import android.util.Log;
+import android.widget.Toast;
+
 public enum TypeTransport
 {
     Select("Выберите вид транспорта"),
-    Bus("автобус"),
-    Suburban("электричка"),
-    Train("поезд"),
-    Plane("самолет");
+    Bus("Автобус"),
+    Suburban("Электричка"),
+    Train("Поезд"),
+    Plane("Самолет");
 
     private String title;
     TypeTransport(String title)
@@ -58,5 +61,27 @@ public enum TypeTransport
                 return 4;
         }
         throw new RuntimeException("Error invalid type");
+    }
+    public static String onTranslate(String enType)
+    {
+        String rusType;
+        switch (enType)
+        {
+            case "Bus":
+                rusType = TypeTransport.Bus.getTitle();
+                break;
+            case "Suburban":
+                rusType = TypeTransport.Suburban.getTitle();
+                break;
+            case "Train":
+                rusType = TypeTransport.Train.getTitle();
+                break;
+            case "Plane":
+                rusType = TypeTransport.Plane.getTitle();
+                break;
+            default:
+                rusType = "";
+        }
+        return rusType;
     }
 }

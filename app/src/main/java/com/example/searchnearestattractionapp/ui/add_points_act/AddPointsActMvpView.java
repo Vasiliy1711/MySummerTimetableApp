@@ -9,12 +9,11 @@ import android.widget.DatePicker;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.searchnearestattractionapp.R;
+import com.example.searchnearestattractionapp.common.DateConverter;
 import com.example.searchnearestattractionapp.common.base_act.BaseActMvpView;
 import com.example.searchnearestattractionapp.databinding.ActAddPointsBinding;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class AddPointsActMvpView extends BaseActMvpView implements AddPointsActMvp.MvpView, DatePickerDialog.OnDateSetListener
@@ -86,7 +85,7 @@ public class AddPointsActMvpView extends BaseActMvpView implements AddPointsActM
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth)
     {
-        String sDate = dayOfMonth + "-" + (month + 1) + "-" + year;
+        String sDate = DateConverter.intToString(new int[]{year, month, dayOfMonth});
         binding.tvDate.setText(sDate);
         calendar = new GregorianCalendar(year, month, dayOfMonth);
     }

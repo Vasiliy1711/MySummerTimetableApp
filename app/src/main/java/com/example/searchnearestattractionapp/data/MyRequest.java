@@ -4,25 +4,26 @@ import java.util.Date;
 
 public class MyRequest
 {
-    private String date;
+    private int[] date;
     private String[] departureInfo;
     private String[] arrivalInfo;
     private String transport_type;
 
-    public MyRequest(String date, String[] departureInfo, String[] arrivalInfo, String transport_type)
+    public MyRequest(int[] date, String[] departureInfo, String[] arrivalInfo, String transport_type)
     {
+
         this.date = date;
         this.departureInfo = departureInfo;
         this.arrivalInfo = arrivalInfo;
         this.transport_type = transport_type;
     }
 
-    public String getDate()
+    public int[] getDate()
     {
         return date;
     }
 
-    public void setDate(String date)
+    public void setDate(int[] date)
     {
         this.date = date;
     }

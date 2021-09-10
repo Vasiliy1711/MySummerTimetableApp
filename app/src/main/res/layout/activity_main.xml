@@ -45,7 +45,6 @@
                     android:gravity="center"
                     android:layout_below="@id/tv_one"
                     android:layout_marginTop="18dp"
-                    android:text="@string/str_date"
                     android:textSize="24sp" />
 
                 <TextView

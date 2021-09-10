@@ -2,6 +2,7 @@ package com.example.searchnearestattractionapp.ui.add_points_act;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -31,23 +32,47 @@ public class AddPointsActivity extends BaseActivity implements AddPointsActMvp.P
     @Override
     public void btnAddDayClicked()
     {
-        Toast.makeText(this, "btnAddDayClicked", Toast.LENGTH_SHORT).show();
+        int date[] = new int[3];
         Calendar calendar = mvpView.getDate();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        String date = year + "-" + (month + 1) + "-" + day;
+        if (calendar != null)
+        {
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH) + 1;
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+            Log.e("TAG", "btnAddDayClicked: " + year +  month +  day);
+
+            if (year != 0 && month != 0 && day != 0)
+            {
+                date[0] = year;
+                date[1] = month;
+                date[2] = day;
+            }else
+            {
+                Toast.makeText(this, "Выберите дату!", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
+
 
         String[] departureInfo = getStationByPosition(mvpView.getStationDeparture());
         String[] arrivalInfo = getStationByPosition(mvpView.getStationArrival());
         String transport_type = TypeTransport.initFromPos(mvpView.getTransportType()).toString();
 
-        MyRequest request = new MyRequest(date, departureInfo, arrivalInfo, transport_type);
+        if (departureInfo != null && arrivalInfo != null && transport_type != null)
+        {
+            MyRequest request = new MyRequest(date, departureInfo, arrivalInfo, transport_type);
 
-        EventBus.request.onNext(request);
-        Intent intent = new Intent();
-        setResult(RESULT_OK, intent);
-        finish();
+            EventBus.request.onNext(request);
+            Intent intent = new Intent();
+            setResult(RESULT_OK, intent);
+            finish();
+        }else
+        {
+            Toast.makeText(this, "Заполните все поля!", Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     private String[] getStationByPosition(int position)
@@ -87,7 +112,7 @@ public class AddPointsActivity extends BaseActivity implements AddPointsActMvp.P
             }
         }else
         {
-            Toast.makeText(this, "Выберите пункт", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Выберите вид транспорта", Toast.LENGTH_SHORT).show();
         }
 
         return stationInfo;

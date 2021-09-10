@@ -13,10 +13,10 @@ public class DateConverter
     private static String time;
 
 
-    public static String getTime(String base)
+    public static String getTimeFromJSON(String base)
     {
         Pattern pTime = Pattern.compile("T(.*?)03:");
-        Matcher mTime = pTime.matcher(base);             //  "2021-09-08T07:05:00+03:00"
+        Matcher mTime = pTime.matcher(base);
         while (mTime.find())
         {
             String fTime = mTime.group(1);
@@ -26,15 +26,16 @@ public class DateConverter
             } else
             {
                 time = fTime.substring(0, 5);
+
             }
 
         }
         return time;
     }
 
-    public static String getDay(String base)
+    public static String getDayFromJSON(String base)
     {
-        Pattern pDay = Pattern.compile(DateConverter.getMonth(base) + "-(.*?)T");
+        Pattern pDay = Pattern.compile(DateConverter.getMonthFromJSON(base) + "-(.*?)T");
         Matcher mDay = pDay.matcher(base);
         while (mDay.find())
         {
@@ -43,7 +44,7 @@ public class DateConverter
         return day;
     }
 
-    public static String getMonth(String base)
+    public static String getMonthFromJSON(String base)
     {
         Pattern pMonth = Pattern.compile("-(.*?)-");
         Matcher mMonth = pMonth.matcher(base);
@@ -51,12 +52,12 @@ public class DateConverter
         {
             month = mMonth.group(1);
         }
-        return month;        //  "2021-09-08T07:05:00+03:00"
+        return month;
     }
 
-    public static String getYear(String base)
+    public static String getYearFromJSON(String base)
     {
-        Pattern pYear = Pattern.compile("(.*?)-" + DateConverter.getMonth(base));
+        Pattern pYear = Pattern.compile("(.*?)-" + DateConverter.getMonthFromJSON(base));
         Matcher mYear = pYear.matcher(base);
         while (mYear.find())
         {
@@ -65,10 +66,10 @@ public class DateConverter
         return year;
     }
 
-    public static String getDate(String base)
+    public static String getDateFromJSON(String base)
     {
-        int month = Integer.parseInt(DateConverter.getMonth(base));
-        String day = DateConverter.getDay(base);
+        int month = Integer.parseInt(DateConverter.getMonthFromJSON(base));
+        String day = DateConverter.getDayFromJSON(base);
         String sMonth = "янв.";
         if (month != 0)
         {
@@ -117,8 +118,56 @@ public class DateConverter
         return date;
     }
 
+    public static String intToString(int[] date)
+    {
+        switch (date[1])
+        {
+            case 1:
+              month = "января";
+              break;
+            case 2:
+                month = "февраля";
+                break;
+            case 3:
+                month = "марта";
+                break;
+            case 4:
+                month = "апреля";
+                break;
+            case 5:
+                month = "мая";
+                break;
+            case 6:
+                month = "июня";
+                break;
+            case 7:
+                month = "июля";
+                break;
+            case 8:
+                month = "августа";
+                break;
+            case 9:
+                month = "сентября";
+                break;
+            case 10:
+                month = "октября";
+                break;
+            case 11:
+                month = "ноября";
+                break;
+            case 12:
+                month = "декабря";
+                break;
+            default:
+                month = "";
+        }
+        return date[2] + " " + month + " " + date[0];
+    }
+
+    public static String stringFromInt(int[] iDate)
+    {
+        return date = iDate[0] + "-" + iDate[1] + "-" + iDate[2];
+    }
+
 
 }
-
-
-//  https://api.rasp.yandex.net/v3.0/stations_list/?apikey=2babce63-0047-4b6c-9691-1233e12c29f6&lang=ru_RU&format=json&transport_types=suburban

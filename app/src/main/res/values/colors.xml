@@ -25,6 +25,7 @@
     <color name="gray8_trans_50">#80222222</color>
 
     <color name="light_blue">#B3E5FC</color>
+    <color name="blue50">#E1F5FE</color>
     <color name="blue">#3D73DD</color>
     <color name="blue_dark">#1552C8</color>
     <color name="blue_light">#5E92F8</color>
@@ -32,6 +33,9 @@
 
 
     <color name="red">#E7271E</color>
+    <color name="red200">#EF9A9A</color>
+    <color name="red100">#FFCDD2</color>
+    <color name="red50">#FFEBEE</color>
     <color name="red_light">#F7443C</color>
     <color name="red_dark">#CC130B</color>
     <color name="red_trans_50">#80E7271E</color>

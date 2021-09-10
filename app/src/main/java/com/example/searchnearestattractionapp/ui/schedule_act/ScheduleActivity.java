@@ -1,13 +1,14 @@
 package com.example.searchnearestattractionapp.ui.schedule_act;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import com.example.searchnearestattractionapp.common.BaseDownloader;
 import com.example.searchnearestattractionapp.common.Callback;
+import com.example.searchnearestattractionapp.common.DateConverter;
 import com.example.searchnearestattractionapp.common.EventBus;
 import com.example.searchnearestattractionapp.common.base_act.BaseActivity;
 import com.example.searchnearestattractionapp.data.MyRequest;
@@ -16,6 +17,7 @@ import com.example.searchnearestattractionapp.pojo.response1.NetworkResponse1;
 import com.example.searchnearestattractionapp.pojo.response1.ScheduleItem1;
 import com.example.searchnearestattractionapp.pojo.response1.StationType;
 import com.example.searchnearestattractionapp.pojo.response1.Thread;
+import com.example.searchnearestattractionapp.ui.base_search_act.AdvSearchAct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +48,7 @@ public class ScheduleActivity extends BaseActivity implements ScheduleActMvp.Pre
             public void accept(MyRequest myRequest) throws Exception
             {
                 BaseDownloader.getScheduleFromNetwork(compositeDisposable, myRequest.getDepartureInfo()[0]
-                        , myRequest.getArrivalInfo()[0], myRequest.getTransport_type(), myRequest.getDate()
+                        , myRequest.getArrivalInfo()[0], myRequest.getTransport_type(), DateConverter.stringFromInt(myRequest.getDate())
                         , new Callback<NetworkResponse1>()
                 {
                     @Override
@@ -103,5 +105,12 @@ public class ScheduleActivity extends BaseActivity implements ScheduleActMvp.Pre
     private void onResponseNull()
     {
         Toast.makeText(this, "Расписание доступно на 30 дней до и 11 месяцев после текущей даты", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void btnAdvSearchClicked()
+    {
+        Intent intent = new Intent(this, AdvSearchAct.class);
+        startActivity(intent);
     }
 }

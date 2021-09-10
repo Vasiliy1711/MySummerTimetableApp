@@ -2,13 +2,16 @@ package com.example.searchnearestattractionapp.ui.main_act;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import com.example.searchnearestattractionapp.common.Constants;
+import com.example.searchnearestattractionapp.common.DateConverter;
 import com.example.searchnearestattractionapp.common.EventBus;
+import com.example.searchnearestattractionapp.common.TypeTransport;
 import com.example.searchnearestattractionapp.common.base_act.BaseActivity;
 import com.example.searchnearestattractionapp.data.MyRequest;
 import com.example.searchnearestattractionapp.ui.add_points_act.AddPointsActivity;
@@ -56,37 +59,38 @@ public class MainActivity extends BaseActivity implements MainActMvp.Presenter
                 @Override
                 public void accept(MyRequest myRequest) throws Exception
                 {
-                    mvpView.setDate(myRequest.getDate());
+                    mvpView.setDate(DateConverter.intToString(myRequest.getDate()));
                     mvpView.setDeparture(myRequest.getDepartureInfo()[1]);
                     mvpView.setArrival(myRequest.getArrivalInfo()[1]);
-                    mvpView.setTransportType(onTranslate(myRequest.getTransport_type()));
+                    mvpView.setTransportType(TypeTransport.onTranslate(myRequest.getTransport_type()));
                 }
             });
             compositeDisposable.add(disposable);
         }
     }
-    private String onTranslate(String enType)
-    {
-        String rusType = null;
-        switch (enType)
-        {
-            case "Bus":
-                rusType = "Автобус";
-                break;
-            case "Suburban":
-                rusType = "Электричка";
-                break;
-            case "Train":
-                rusType = "Поезд";
-                break;
-            case "Plane":
-                rusType = "Самолет";
-                break;
-            default:
-                Toast.makeText(this, "Вид транспорта не выбран", Toast.LENGTH_SHORT).show();
-        }
-        return rusType;
-    }
+//    private String onTranslate(String enType)
+//    {
+//        String rusType = null;
+//        switch (enType)
+//        {
+//            case "Bus":
+//                rusType = TypeTransport.Bus.toString();
+//                break;
+//            case "Suburban":
+//                rusType = TypeTransport.Suburban.toString();
+//                break;
+//            case "Train":
+//                rusType = TypeTransport.Train.toString();
+//                break;
+//            case "Plane":
+//                rusType = TypeTransport.Plane.toString();
+//                break;
+//            default:
+//                Toast.makeText(this, "Вид транспорта не выбран", Toast.LENGTH_SHORT).show();
+//                Log.e("TAG", "onTranslate: " + rusType);
+//        }
+//        return rusType;
+//    }
 }
 
 

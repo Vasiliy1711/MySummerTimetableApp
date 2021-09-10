@@ -12,6 +12,10 @@
         android:roundIcon="@drawable/suburban"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <activity android:name=".ui.base_search_act.AdvSearchAct">
+
+        </activity>
         <activity android:name=".ui.schedule_act.ScheduleActivity" />
         <activity android:name=".ui.TestActivity">
 

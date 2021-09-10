@@ -1,6 +1,5 @@
 package com.example.searchnearestattractionapp.adapters;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,20 +53,15 @@ public class ScheduleItemAdapter extends RecyclerView.Adapter<ScheduleItemAdapte
         MyScheduleItem item = items.get(position);
         holder.ivTransType.setImageResource(R.drawable.suburban2);
         holder.tvNumberTitle.setText(item.getNumber() + " " + item.getThreadTitle());
-//        holder.tvTimeDep.setText(item.getDepartureTime());
-//        holder.tvTimeArr.setText(item.getArrivalTime());
+
         holder.tvExcept.setText(item.getStops());
         holder.tvPointDep.setText(item.getDepStationTitle());
         holder.tvPointArr.setText(item.getArrStationTitle());
-        holder.tvTimeDep.setText(DateConverter.getTime(item.getDepartureTime()));
-        holder.tvTimeArr.setText(DateConverter.getTime(item.getArrivalTime()));
-        holder.tvDayDep.setText(DateConverter.getDate(item.getDepartureTime()));
-        holder.tvDayArr.setText(DateConverter.getDate(item.getArrivalTime()));
+        holder.tvTimeDep.setText(DateConverter.getTimeFromJSON(item.getDepartureTime()));
+        holder.tvTimeArr.setText(DateConverter.getTimeFromJSON(item.getArrivalTime()));
+        holder.tvDayDep.setText(DateConverter.getDateFromJSON(item.getDepartureTime()));
+        holder.tvDayArr.setText(DateConverter.getDateFromJSON(item.getArrivalTime()));
         setTravelTime(item, holder);
-        Log.e("TAG", "onBindViewHolder: " + position);
-        Log.e("TAG", "onBindViewHolder: " + holder.tvTimeArr.getText().toString());
-        Log.e("TAG", "onBindViewHolder: " + holder.tvTimeDep.getText().toString());
-        Log.e("TAG", "onBindViewHolder: " + position);
     }
 
     @Override

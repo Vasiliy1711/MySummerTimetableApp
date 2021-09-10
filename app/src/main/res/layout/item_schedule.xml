@@ -17,8 +17,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:layout_margin="2dp"
-                android:background="@color/white"
+                android:background="@color/blue50"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -30,6 +31,7 @@
                     android:src="@drawable/suburban2" />
 
                 <TextView
+
                     android:id="@+id/tv_number_title"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -85,6 +87,7 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="2"
+
                             android:layout_marginLeft="8dp"
                             android:layout_marginRight="8dp"
                             android:gravity="center">
@@ -159,8 +162,10 @@
 
                     <TextView
                         android:id="@+id/tv_except"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:background="@color/gray1"
                         android:text="@string/except"
                         android:textSize="10sp" />
                 </LinearLayout>

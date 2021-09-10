@@ -13,6 +13,6 @@ public interface ScheduleActMvp
     }
     interface Presenter
     {
-
+        void btnAdvSearchClicked();
     }
 }

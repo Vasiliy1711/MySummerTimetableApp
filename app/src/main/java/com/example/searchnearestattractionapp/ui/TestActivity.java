@@ -2,23 +2,13 @@ package com.example.searchnearestattractionapp.ui;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
 import com.example.searchnearestattractionapp.R;
-import com.example.searchnearestattractionapp.common.BaseDownloader;
-import com.example.searchnearestattractionapp.common.Callback;
 import com.example.searchnearestattractionapp.common.DateConverter;
 import com.example.searchnearestattractionapp.common.base_act.BaseActivity;
-import com.example.searchnearestattractionapp.pojo.response1.NetworkResponse1;
-import com.example.searchnearestattractionapp.pojo.response2.NetworkResponse2;
-import com.example.searchnearestattractionapp.pojo.response3.NetworkResponse3;
-import com.example.searchnearestattractionapp.pojo.response4.NetworkResponse4;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class TestActivity extends BaseActivity
 {
@@ -36,11 +26,11 @@ public class TestActivity extends BaseActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_test);
-        time = DateConverter.getTime(base);
-        day = DateConverter.getDay(base);
-        month = DateConverter.getMonth(base);
-        year = DateConverter.getYear(base);
-        date = DateConverter.getDate(base);
+        time = DateConverter.getTimeFromJSON(base);
+        day = DateConverter.getDayFromJSON(base);
+        month = DateConverter.getMonthFromJSON(base);
+        year = DateConverter.getYearFromJSON(base);
+        date = DateConverter.getDateFromJSON(base);
         Log.e("TAG", "onCreate: " + time);
         Log.e("TAG", "onCreate: " + day);
         Log.e("TAG", "onCreate: " + month);
