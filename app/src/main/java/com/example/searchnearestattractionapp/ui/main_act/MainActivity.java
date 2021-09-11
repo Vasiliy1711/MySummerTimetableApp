@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity implements MainActMvp.Presenter
                     mvpView.setDate(DateConverter.intToString(myRequest.getDate()));
                     mvpView.setDeparture(myRequest.getDepartureInfo()[1]);
                     mvpView.setArrival(myRequest.getArrivalInfo()[1]);
-                    mvpView.setTransportType(TypeTransport.onTranslate(myRequest.getTransport_type()));
+                    mvpView.setTransportType(myRequest.getTransport_type());
                 }
             });
             compositeDisposable.add(disposable);

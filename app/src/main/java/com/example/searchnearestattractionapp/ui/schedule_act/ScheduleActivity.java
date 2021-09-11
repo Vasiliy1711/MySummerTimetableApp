@@ -10,6 +10,7 @@ import com.example.searchnearestattractionapp.common.BaseDownloader;
 import com.example.searchnearestattractionapp.common.Callback;
 import com.example.searchnearestattractionapp.common.DateConverter;
 import com.example.searchnearestattractionapp.common.EventBus;
+import com.example.searchnearestattractionapp.common.TypeTransport;
 import com.example.searchnearestattractionapp.common.base_act.BaseActivity;
 import com.example.searchnearestattractionapp.data.MyRequest;
 import com.example.searchnearestattractionapp.data.MyScheduleItem;
@@ -48,7 +49,7 @@ public class ScheduleActivity extends BaseActivity implements ScheduleActMvp.Pre
             public void accept(MyRequest myRequest) throws Exception
             {
                 BaseDownloader.getScheduleFromNetwork(compositeDisposable, myRequest.getDepartureInfo()[0]
-                        , myRequest.getArrivalInfo()[0], myRequest.getTransport_type(), DateConverter.stringFromInt(myRequest.getDate())
+                        , myRequest.getArrivalInfo()[0], TypeTransport.onTranslate(myRequest.getTransport_type()), DateConverter.stringFromInt(myRequest.getDate())
                         , new Callback<NetworkResponse1>()
                 {
                     @Override

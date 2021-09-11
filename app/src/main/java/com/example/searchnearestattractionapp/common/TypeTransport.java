@@ -27,20 +27,20 @@ public enum TypeTransport
         this.title = title;
     }
 
-    public static TypeTransport initFromPos(int position)
+    public static String initFromPos(int position)
     {
         switch (position)
         {
             case 0:
-                return Select;
+                return null;
             case 1:
-                return Bus;
+                return Bus.title;
             case 2:
-                return Suburban;
+                return Suburban.title;
             case 3:
-                return Train;
+                return Train.title;
             case 4:
-                return Plane;
+                return Plane.title;
         }
         throw new RuntimeException("Error invalid position");
     }
@@ -62,26 +62,38 @@ public enum TypeTransport
         }
         throw new RuntimeException("Error invalid type");
     }
-    public static String onTranslate(String enType)
+    public static String onTranslate(String inType)
     {
-        String rusType;
-        switch (enType)
+        String outType;
+        switch (inType)
         {
             case "Bus":
-                rusType = TypeTransport.Bus.getTitle();
+                outType = Bus.title;
                 break;
             case "Suburban":
-                rusType = TypeTransport.Suburban.getTitle();
+                outType = TypeTransport.Suburban.getTitle();
                 break;
             case "Train":
-                rusType = TypeTransport.Train.getTitle();
+                outType = TypeTransport.Train.getTitle();
                 break;
             case "Plane":
-                rusType = TypeTransport.Plane.getTitle();
+                outType = TypeTransport.Plane.getTitle();
+                break;
+            case "Автобус":
+                outType = "Bus";
+                break;
+            case "Электричка":
+                outType = "Suburban";
+                break;
+            case "Поезд":
+                outType = "Train";
+                break;
+            case "Самолет":
+                outType = "Plane";
                 break;
             default:
-                rusType = "";
+                outType = "";
         }
-        return rusType;
+        return outType;
     }
 }

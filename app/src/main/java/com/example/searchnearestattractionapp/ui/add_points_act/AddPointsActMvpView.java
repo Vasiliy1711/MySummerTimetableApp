@@ -20,7 +20,7 @@ public class AddPointsActMvpView extends BaseActMvpView implements AddPointsActM
 {
     private AddPointsActMvp.Presenter presenter;
     private ActAddPointsBinding binding;
-    private Calendar calendar;
+    private int[] date = new int[3];
 
 
     public AddPointsActMvpView(LayoutInflater inflater, Context context)
@@ -77,17 +77,20 @@ public class AddPointsActMvpView extends BaseActMvpView implements AddPointsActM
 
 
     @Override
-    public Calendar getDate()
+    public int[] getDate()
     {
-        return calendar;
+        return date;
     }
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth)
     {
-        String sDate = DateConverter.intToString(new int[]{year, month, dayOfMonth});
+        date[0] = year;
+        date[1] = month + 1;
+        date[2] = dayOfMonth;
+        String sDate = DateConverter.intToString(date);
         binding.tvDate.setText(sDate);
-        calendar = new GregorianCalendar(year, month, dayOfMonth);
+
     }
 
     private void showDatePickerDialog(Context context)

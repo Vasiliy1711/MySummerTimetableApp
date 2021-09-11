@@ -13,7 +13,7 @@ public interface AddPointsActMvp
 
         int getStationDeparture();
         int getStationArrival();
-        Calendar getDate();
+        int[] getDate();
     }
 
     interface Presenter

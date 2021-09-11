@@ -6,7 +6,7 @@ public class Constants
     public static final String BASE_URL = "https://api.rasp.yandex.net/v3.0/";
 
     public static final String BARYBINO = "Барыбино";
-    public static final String PAVELETSKIY = "Павелецккий вокзал";
+    public static final String PAVELETSKIY = "Павелецкий вокзал";
     public static final String VERHNIE_KOTLY = "Верхние котлы";
     public static final String NAGATINSKAYA = "Нагатинская";
 
