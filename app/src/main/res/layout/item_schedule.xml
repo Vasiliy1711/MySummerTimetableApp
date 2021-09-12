@@ -5,174 +5,172 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:elevation="32dp"
-        app:cardCornerRadius="16dp">
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="6dp"
+        app:cardBackgroundColor="@color/blue50"
+        android:elevation="12dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginRight="12dp">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/blue_light">
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_trans_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:src="@drawable/suburban2" />
+
+            <TextView
+
+                android:id="@+id/tv_number_title"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="6007  Москва(Павелецкий вокзал) - Ожерелье  " />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-
-                android:layout_margin="2dp"
-                android:background="@color/blue50"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/iv_trans_type"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.5"
-                    android:src="@drawable/suburban2" />
-
-                <TextView
-
-                    android:id="@+id/tv_number_title"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="4"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="6007  Москва(Павелецкий вокзал) - Ожерелье  " />
+                android:layout_weight="8"
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@color/gray4_trans_50"
+                        android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="0dp"
+                        <TextView
+                            android:id="@+id/tv_day_dep"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:background="@color/gray4_trans_50"
-                            android:orientation="vertical">
+                            android:text="7 сент."
+                            android:textAlignment="center"
+                            android:textSize="12sp" />
 
-                            <TextView
-                                android:id="@+id/tv_day_dep"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="7 сент."
-                                android:textAlignment="center"
-                                android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/tv_time_dep"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="23:45"
+                            android:textAlignment="center"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
-                            <TextView
-                                android:id="@+id/tv_time_dep"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="23:45"
-                                android:textAlignment="center"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_point_dep"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Павелецкий вокзал"
-                                android:textAlignment="center"
-                                android:textSize="10sp" />
-                        </LinearLayout>
-
-                        <RelativeLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
-                            android:gravity="center">
-
-
-                            <TextView
-                                android:id="@+id/tv_time1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:visibility="gone"
-                                android:text="1" />
-                            <TextView
-                                android:id="@+id/tv_time2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_toEndOf="@id/tv_time1"
-                                android:gravity="center"
-                                android:visibility="gone"
-                                android:text="@string/hour_title"/>
-                            <TextView
-                                android:id="@+id/tv_time3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_toEndOf="@+id/tv_time2"
-                                android:gravity="center"
-                                android:text="12"/>
-
-                            <TextView
-                                android:id="@+id/tv_time4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_toEndOf="@id/tv_time3"
-                                android:gravity="center"
-                                android:text="мин" />
-                        </RelativeLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@color/gray4_trans_50"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/tv_day_arr"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="7 сент."
-                                android:textAlignment="center"
-                                android:textSize="12sp" />
-
-                            <TextView
-                                android:id="@+id/tv_time_arr"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="23:45"
-                                android:textAlignment="center"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_point_arr"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Барыбино"
-                                android:textAlignment="center"
-                                android:textSize="10sp" />
-
-                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/tv_point_dep"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Павелецкий вокзал"
+                            android:textAlignment="center"
+                            android:textSize="10sp" />
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/tv_except"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp"
-                        android:background="@color/gray1"
-                        android:text="@string/except"
-                        android:textSize="10sp" />
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="8dp"
+
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="2"
+                        android:gravity="center">
+
+
+                        <TextView
+                            android:id="@+id/tv_time1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="1"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_time2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toEndOf="@id/tv_time1"
+                            android:gravity="center"
+                            android:text="@string/hour_title"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_time3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toEndOf="@+id/tv_time2"
+                            android:gravity="center"
+                            android:text="12" />
+
+                        <TextView
+                            android:id="@+id/tv_time4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toEndOf="@id/tv_time3"
+                            android:gravity="center"
+                            android:text="мин" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@color/gray4_trans_50"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_day_arr"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="7 сент."
+                            android:textAlignment="center"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tv_time_arr"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="23:45"
+                            android:textAlignment="center"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_point_arr"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Барыбино"
+                            android:textAlignment="center"
+                            android:textSize="10sp" />
+
+                    </LinearLayout>
                 </LinearLayout>
 
-
+                <TextView
+                    android:id="@+id/tv_except"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/gray1"
+                    android:padding="5dp"
+                    android:text="@string/except"
+                    android:textSize="10sp" />
             </LinearLayout>
+
+
         </LinearLayout>
+
 
     </androidx.cardview.widget.CardView>
 </layout>

@@ -11,7 +11,7 @@
     <string name="str_add">Добавить</string>
     <string name="str_cancel">Отмена</string>
     <string name="str_select">Выбрать</string>
-    <string name="str_search_schedule">Найти расписание</string>
+    <string name="str_search_schedule">Добавить в поиск</string>
     <string name="except">кроме: Дербеневская (бывш. Москва-Товарная), Тульская (бывш. ЗИЛ), Чертаново, Булатниково, Калинина, Ленинская, 32 км</string>
     <string name="hour_title">ч</string>
     <string name="choose_date">Пожалуйста, выберите дату!</string>

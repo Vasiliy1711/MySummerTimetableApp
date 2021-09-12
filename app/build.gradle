@@ -106,4 +106,5 @@ dependencies {
     implementation 'com.github.zyyoona7:pickerview:1.0.9'
     implementation 'com.contrarywind:Android-PickerView:4.1.9'
     implementation 'org.jaaksi:pickerview:3.0.2'
+    implementation 'com.google.android.material:material:1.4.0'
 }
