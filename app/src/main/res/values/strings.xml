@@ -14,6 +14,10 @@
     <string name="str_search_schedule">Найти расписание</string>
     <string name="except">кроме: Дербеневская (бывш. Москва-Товарная), Тульская (бывш. ЗИЛ), Чертаново, Булатниково, Калинина, Ленинская, 32 км</string>
     <string name="hour_title">ч</string>
+    <string name="choose_date">Пожалуйста, выберите дату!</string>
+    <string name="enter_departure">Введите пункт отправления!</string>
+    <string name="enter_arrival">Введите пункт назначения!</string>
+    <string name="choose_trans_type">Выберите вид транспорта!</string>
 
     <string-array name="transport">
         <item>Вид транспорта</item>

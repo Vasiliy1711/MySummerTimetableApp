@@ -13,6 +13,8 @@ import com.example.searchnearestattractionapp.common.EventBus;
 import com.example.searchnearestattractionapp.common.TypeTransport;
 import com.example.searchnearestattractionapp.common.base_act.BaseActivity;
 import com.example.searchnearestattractionapp.data.MyRequest;
+import com.example.searchnearestattractionapp.utils.ValidationData;
+import com.example.searchnearestattractionapp.utils.ValidationManager;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -34,43 +36,21 @@ public class AddPointsActivity extends BaseActivity implements AddPointsActMvp.P
     public void btnAddDayClicked()
     {
         int date[] = mvpView.getDate();
-        String[] departureInfo;
-        String[] arrivalInfo = new String[2];
-        String transport_type;
-        if (date[0] != 0)
+        String[] departureInfo = getStationByPosition(mvpView.getStationDeparture());
+        String[] arrivalInfo = getStationByPosition(mvpView.getStationArrival());
+        String transport_type = TypeTransport.initFromPos(mvpView.getTransportType());
+        ValidationData data = ValidationManager.validateDataEntry(date, departureInfo, arrivalInfo, transport_type);
+        if (!data.isValid)
         {
-            departureInfo = getStationByPosition(mvpView.getStationDeparture());
-            if (departureInfo[0] != null)
-            {
-                arrivalInfo = getStationByPosition(mvpView.getStationArrival());
-                if (arrivalInfo[0] != null)
-                {
-                    transport_type = TypeTransport.initFromPos(mvpView.getTransportType());
-                    Log.e("TAG", "transport_type: " + transport_type);
-                    if (transport_type != null)
-                    {
-                        MyRequest request = new MyRequest(date, departureInfo, arrivalInfo, transport_type);
-
-                        EventBus.request.onNext(request);
-                        Intent intent = new Intent();
-                        setResult(RESULT_OK, intent);
-                        finish();
-                    }else
-                    {
-                        Toast.makeText(this, "Выберите вид транспорта!", Toast.LENGTH_SHORT).show();
-                    }
-                }else
-                {
-                    Toast.makeText(this, "Введите пункт назначения!", Toast.LENGTH_SHORT).show();
-                }
-            }else
-            {
-                Toast.makeText(this, "Введите пункт отправления!", Toast.LENGTH_SHORT).show();
-            }
-        }else
-        {
-            Toast.makeText(this, "Выберите дату!", Toast.LENGTH_SHORT).show();
+            String message = data.getErrorMessage();
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+            return;
         }
+        MyRequest request = new MyRequest(date, departureInfo, arrivalInfo, transport_type);
+        EventBus.request.onNext(request);
+        Intent intent = new Intent();
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
     private String[] getStationByPosition(int position)
